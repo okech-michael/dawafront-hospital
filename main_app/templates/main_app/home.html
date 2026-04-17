@@ -279,7 +279,7 @@
     </div>
 
     <div class="testimonials-grid">
-      {% if testimonials %}
+      {% if testimonials and testimonials|length > 0 %}
         {% for t in testimonials %}
         <div class="testimonial-card fade-up">
           <div class="testimonial-stars">
