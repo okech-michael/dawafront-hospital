@@ -20,7 +20,7 @@
 <section style="padding: 80px 0; background: var(--off-white);">
   <div class="container">
 
-    {% if facilities %}
+    {% if facilities and facilities|length > 0 %}
       <div class="facilities-grid">
         {% for f in facilities %}
         <div class="facility-card">
