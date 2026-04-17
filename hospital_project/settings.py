@@ -90,7 +90,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'main_app' / 'static',
-]
+] if (BASE_DIR / 'main_app' / 'static').exists() else []
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise configuration
