@@ -1,0 +1,159 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Our Services | Dawafront Healthcare Clinic{% endblock %}
+
+{% block content %}
+
+<div style="padding-top: var(--nav-height);"></div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">What We Offer</span>
+    <h1>Our Medical Services</h1>
+    <p>Comprehensive healthcare solutions for individuals and families across Kisumu.</p>
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Services</span>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SERVICES -->
+<section class="services-full bg-off-white">
+  <div class="container">
+
+    <div class="service-full-card">
+      <div class="service-full-icon"><i class="fa-solid fa-stethoscope"></i></div>
+      <div class="service-full-content">
+        <h3>Outpatient Care</h3>
+        <p>Our outpatient department handles a wide variety of medical conditions for patients who do not require hospital admission. You'll receive a thorough examination, diagnosis, and treatment plan from our experienced physicians. Follow-up appointments are scheduled as needed.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> General Consultation</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Chronic Disease Management</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Minor Procedures</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon"><i class="fa-solid fa-bed-pulse"></i></div>
+      <div class="service-full-content">
+        <h3>Inpatient Care</h3>
+        <p>For patients who require close monitoring and continuous treatment, our inpatient ward offers round-the-clock care by qualified nurses and physicians. We provide comfortable rooms, nutritional support, and regular medical reviews to ensure full recovery.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> 24/7 Nursing</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Daily Doctor Rounds</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> In-room Meals</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#e74c3c,#c0392b);"><i class="fa-solid fa-truck-medical"></i></div>
+      <div class="service-full-content">
+        <h3>Emergency Services</h3>
+        <p>Our emergency department is staffed 24 hours a day, 7 days a week to respond to accidents, sudden illness, and life-threatening conditions. We are equipped with emergency beds and experienced emergency physicians to handle critical cases efficiently.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> 2 Emergency Beds</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Rapid Triage</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Trauma Management</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#8e44ad,#6c3483);"><i class="fa-solid fa-scalpel"></i></div>
+      <div class="service-full-content">
+        <h3>Surgery</h3>
+        <p>Our surgical team performs a range of elective and emergency procedures in a fully equipped operating theatre. Pre-operative assessments, anaesthesia, and post-operative care are all handled by our dedicated surgical team.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Minor Surgery</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Laparoscopy</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Post-op Care</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#e91e8c,#c2185b);"><i class="fa-solid fa-baby"></i></div>
+      <div class="service-full-content">
+        <h3>Maternity Services</h3>
+        <p>We provide comprehensive maternity care from antenatal clinics through to safe delivery and postnatal follow-up. Our maternity ward has a dedicated maternity bed and caring midwives who ensure the safety and comfort of mother and baby.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Antenatal Clinics</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Safe Delivery</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Postnatal Care</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#f39c12,#d68910);"><i class="fa-solid fa-child-reaching"></i></div>
+      <div class="service-full-content">
+        <h3>Pediatrics</h3>
+        <p>Our pediatric services cover the full spectrum of children's health from newborns to teenagers. We conduct growth monitoring, immunizations, nutritional counseling, and treatment for common and complex childhood illnesses in a child-friendly environment.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Immunizations</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Growth Monitoring</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Child Nutrition</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#1abc9c,#148f77);"><i class="fa-solid fa-x-ray"></i></div>
+      <div class="service-full-content">
+        <h3>Radiology</h3>
+        <p>Our radiology unit provides digital X-ray services and ultrasound scanning to support accurate diagnosis. All imaging is reviewed by experienced radiologists, and reports are delivered promptly.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Digital X-Ray</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Ultrasound</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Fast Reports</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#2980b9,#1c5f8a);"><i class="fa-solid fa-flask-vial"></i></div>
+      <div class="service-full-content">
+        <h3>Laboratory Services</h3>
+        <p>Our on-site laboratory provides a comprehensive range of diagnostic tests including blood count, blood glucose, malaria RDT, HIV testing, urinalysis, cultures, and more. Most results are available same-day.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Blood Tests</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Malaria Tests</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> HIV/STI Screening</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-full-card">
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#27ae60,#1e8449);"><i class="fa-solid fa-pills"></i></div>
+      <div class="service-full-content">
+        <h3>Pharmacy</h3>
+        <p>Our pharmacy is stocked with prescription and over-the-counter medications. Our qualified pharmacists provide guidance on medication use, side effects, and drug interactions. We also offer a drug delivery service for patients who cannot visit the clinic.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Wide Medication Range</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Qualified Pharmacists</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Drug Delivery</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 64px 0;">
+  <div class="container text-center">
+    <h2 style="color: white; margin-bottom: 16px;">Need a Service? Book Today.</h2>
+    <p style="color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 32px;">Our team is ready to serve you. Book an appointment or call us now.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="{% url 'booking' %}" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+      <a href="tel:+254700123456" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call +254 700 123 456</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

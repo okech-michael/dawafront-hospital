@@ -1,0 +1,318 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Book Appointment | Dawafront Healthcare Clinic{% endblock %}
+
+{% block content %}
+
+<div style="padding-top: var(--nav-height);"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">Get Started</span>
+    <h1>Book & Request Services</h1>
+    <p>Schedule your appointment, request a home visit, or order medication — all in one place.</p>
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a><span class="sep">/</span><span class="current">Booking</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 80px 0; background: var(--off-white);">
+  <div class="container">
+
+    <!-- TABS -->
+    <div class="booking-tabs" id="service-request">
+      <button class="booking-tab active" data-tab="appointment-form">
+        <i class="fa-solid fa-calendar-check"></i> Book Appointment
+      </button>
+      <button class="booking-tab" data-tab="doctor-nurse-form">
+        <i class="fa-solid fa-user-nurse"></i> Request Doctor / Nurse
+      </button>
+      <button class="booking-tab" data-tab="drug-delivery-form" id="drug-delivery">
+        <i class="fa-solid fa-pills"></i> Order Medication
+      </button>
+    </div>
+
+    <!-- APPOINTMENT FORM -->
+    <div class="booking-form-section active" id="appointment-form">
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start;">
+        <div class="form-card">
+          <h2 style="margin-bottom: 8px;">Book an Appointment</h2>
+          <p style="margin-bottom: 32px;">Fill in your details below and we'll confirm your appointment within 30 minutes.</p>
+          <form method="POST" action="{% url 'booking' %}">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="appointment" />
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" name="phone" placeholder="+254 7XX XXX XXX" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label>Location / Area *</label>
+                <input type="text" name="location" placeholder="e.g. Kondele, Kisumu" required />
+              </div>
+              <div class="form-group">
+                <label>Service Required *</label>
+                <select name="service" required>
+                  <option value="">-- Select a service --</option>
+                  <option value="outpatient">Outpatient Consultation</option>
+                  <option value="inpatient">Inpatient Admission</option>
+                  <option value="emergency">Emergency Services</option>
+                  <option value="surgery">Surgery</option>
+                  <option value="maternity">Maternity</option>
+                  <option value="pediatrics">Pediatrics</option>
+                  <option value="radiology">Radiology</option>
+                  <option value="laboratory">Laboratory</option>
+                  <option value="pharmacy">Pharmacy</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preferred Date *</label>
+                <input type="date" name="preferred_date" required />
+              </div>
+              <div class="form-group">
+                <label>Preferred Time *</label>
+                <input type="time" name="preferred_time" required />
+              </div>
+              <div class="form-group full">
+                <label>Additional Notes</label>
+                <textarea name="notes" placeholder="Describe your symptoms or any additional information..."></textarea>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-solid" style="width: 100%; justify-content: center; padding: 16px;">
+                <i class="fa-solid fa-calendar-check"></i> Confirm Appointment
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- SIDEBAR INFO -->
+        <div>
+          <div class="form-card" style="margin-bottom: 20px;">
+            <h4 style="margin-bottom: 16px; color: var(--primary-dark);">📞 Prefer to Call?</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 16px;">Our reception team is available 24/7 to assist you.</p>
+            <a href="tel:+254700123456" class="btn btn-solid" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-phone"></i> +254 700 123 456
+            </a>
+          </div>
+          <div class="form-card">
+            <h4 style="margin-bottom: 16px; color: var(--primary-dark);">⏰ Clinic Hours</h4>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="font-weight: 700;">Monday – Friday</span><span style="color: var(--accent); font-weight: 700;">Open 24hrs</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="font-weight: 700;">Saturday</span><span style="color: var(--accent); font-weight: 700;">Open 24hrs</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="font-weight: 700;">Sunday</span><span style="color: var(--accent); font-weight: 700;">Open 24hrs</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="font-weight: 700;">Public Holidays</span><span style="color: var(--accent); font-weight: 700;">Open 24hrs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCTOR / NURSE REQUEST FORM -->
+    <div class="booking-form-section" id="doctor-nurse-form">
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start;">
+        <div class="form-card">
+          <h2 style="margin-bottom: 8px;">Request a Doctor or Nurse</h2>
+          <p style="margin-bottom: 32px;">Need a healthcare professional at your home or workplace? Submit a request and we'll dispatch as soon as possible.</p>
+          <form method="POST" action="{% url 'booking' %}">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="service_request" />
+            <input type="hidden" name="request_type" value="doctor" id="requestTypeField" />
+            <div class="form-grid">
+              <div class="form-group full">
+                <label>Request Type *</label>
+                <div style="display: flex; gap: 12px;">
+                  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; background: var(--off-white); padding: 12px 20px; border-radius: var(--radius-sm); border: 2px solid transparent; transition: var(--transition);" class="radio-option">
+                    <input type="radio" name="request_type" value="doctor" checked onchange="document.getElementById('requestTypeField').value=this.value" style="display:none;" />
+                    <i class="fa-solid fa-user-doctor" style="color: var(--primary);"></i> Request a Doctor
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; background: var(--off-white); padding: 12px 20px; border-radius: var(--radius-sm); border: 2px solid transparent; transition: var(--transition);" class="radio-option">
+                    <input type="radio" name="request_type" value="nurse" onchange="document.getElementById('requestTypeField').value=this.value" style="display:none;" />
+                    <i class="fa-solid fa-user-nurse" style="color: var(--accent);"></i> Request a Nurse
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" name="phone" placeholder="+254 7XX XXX XXX" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label>Your Location / Address *</label>
+                <input type="text" name="location" placeholder="Specific address for the visit" required />
+              </div>
+              <div class="form-group">
+                <label>Preferred Visit Date *</label>
+                <input type="date" name="preferred_date" required />
+              </div>
+              <div class="form-group">
+                <label>Preferred Visit Time *</label>
+                <input type="time" name="preferred_time" required />
+              </div>
+              <div class="form-group full">
+                <label>Reason for Request / Patient Condition *</label>
+                <textarea name="details" placeholder="Describe the patient's symptoms or reason for needing the visit..." required></textarea>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-solid" style="width: 100%; justify-content: center; padding: 16px;">
+                <i class="fa-solid fa-paper-plane"></i> Submit Request
+              </button>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div class="form-card">
+            <h4 style="margin-bottom: 12px; color: var(--primary-dark);">🏥 Home Visit Coverage</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 16px;">We serve all areas in Kisumu including:</p>
+            <ul style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+              <li style="display: flex; gap: 8px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Kondele Ward</li>
+              <li style="display: flex; gap: 8px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Migosi Ward</li>
+              <li style="display: flex; gap: 8px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Lolwe Estate</li>
+              <li style="display: flex; gap: 8px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Kisumu Central</li>
+              <li style="display: flex; gap: 8px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Winam Ward</li>
+              <li style="display: flex; gap: 8px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> And surrounding areas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRUG DELIVERY FORM -->
+    <div class="booking-form-section" id="drug-delivery-form">
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start;">
+        <div class="form-card">
+          <h2 style="margin-bottom: 8px;">Order Medication</h2>
+          <p style="margin-bottom: 32px;">Order your prescription or OTC medication from our pharmacy and have it delivered to you.</p>
+          <form method="POST" action="{% url 'booking' %}">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="service_request" />
+            <input type="hidden" name="request_type" value="drug_delivery" />
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" name="phone" placeholder="+254 7XX XXX XXX" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label>Delivery Address *</label>
+                <input type="text" name="location" placeholder="Full delivery address" required />
+              </div>
+              <div class="form-group">
+                <label>Preferred Delivery Date *</label>
+                <input type="date" name="preferred_date" required />
+              </div>
+              <div class="form-group">
+                <label>Preferred Delivery Time *</label>
+                <input type="time" name="preferred_time" required />
+              </div>
+              <div class="form-group full">
+                <label>Medication Details *</label>
+                <textarea name="details" placeholder="List the medications you need (include dosage if known). Attach prescription if available. For prescription drugs, a valid prescription is required." required></textarea>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-solid" style="width: 100%; justify-content: center; padding: 16px;">
+                <i class="fa-solid fa-truck"></i> Submit Order
+              </button>
+            </div>
+          </form>
+        </div>
+        <div>
+          <div class="form-card" style="margin-bottom: 20px;">
+            <h4 style="margin-bottom: 12px; color: var(--primary-dark);">💊 Delivery Info</h4>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
+              <div style="display: flex; gap: 10px;">
+                <i class="fa-solid fa-clock" style="color:var(--accent); margin-top: 2px;"></i>
+                <span>Delivery within <strong>2–4 hours</strong> in Kisumu.</span>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <i class="fa-solid fa-prescription" style="color:var(--accent); margin-top: 2px;"></i>
+                <span>Prescription drugs require a valid prescription from a doctor.</span>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <i class="fa-solid fa-money-bill-wave" style="color:var(--accent); margin-top: 2px;"></i>
+                <span>Payment on delivery (cash, M-Pesa accepted).</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-card">
+            <h4 style="margin-bottom: 12px; color: var(--primary-dark);">📞 Call to Order</h4>
+            <p style="font-size: 0.88rem; margin-bottom: 12px;">Prefer to order by phone? Call our pharmacy directly.</p>
+            <a href="tel:+254700123456" class="btn btn-solid" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-phone"></i> +254 700 123 456
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Highlight selected radio option
+document.querySelectorAll('.radio-option input[type=radio]').forEach(radio => {
+  radio.closest('.radio-option').style.cursor = 'pointer';
+  if (radio.checked) {
+    radio.closest('label').style.borderColor = 'var(--primary)';
+    radio.closest('label').style.background = 'rgba(10,74,140,0.06)';
+  }
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('.radio-option').forEach(l => {
+      l.style.borderColor = 'transparent';
+      l.style.background = 'var(--off-white)';
+    });
+    radio.closest('label').style.borderColor = 'var(--primary)';
+    radio.closest('label').style.background = 'rgba(10,74,140,0.06)';
+  });
+});
+
+// Handle URL hash tab selection
+const hash = window.location.hash;
+if (hash === '#drug-delivery') {
+  document.querySelector('[data-tab="drug-delivery-form"]').click();
+} else if (hash === '#service-request') {
+  document.querySelector('[data-tab="doctor-nurse-form"]').click();
+}
+
+// Set min date for date inputs to today
+const today = new Date().toISOString().split('T')[0];
+document.querySelectorAll('input[type=date]').forEach(d => d.setAttribute('min', today));
+</script>
+{% endblock %}

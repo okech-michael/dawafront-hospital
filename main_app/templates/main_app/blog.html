@@ -1,0 +1,168 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Health Blog | Dawafront Healthcare Clinic{% endblock %}
+
+{% block content %}
+
+<div style="padding-top: var(--nav-height);"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">Knowledge & Wellness</span>
+    <h1>Health Articles & Tips</h1>
+    <p>Expert health advice, disease prevention guides, and nutrition insights from the Dawafront medical team.</p>
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a><span class="sep">/</span><span class="current">Blog</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 80px 0; background: var(--off-white);">
+  <div class="container">
+
+    {% if posts %}
+      <div class="blog-grid">
+        {% for post in posts %}
+        <div class="blog-card">
+          <div class="blog-image">
+            {% if post.image %}
+              <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+            {% else %}
+              <i class="fa-solid fa-newspaper"></i>
+            {% endif %}
+            <span class="blog-category">{{ post.get_category_display }}</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> {{ post.date|date:"d M Y" }}</span>
+              <span><i class="fa-regular fa-user"></i> {{ post.author }}</span>
+            </div>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content|truncatewords:28 }}</p>
+            <a href="{% url 'blog_detail' post.pk %}" class="read-more">
+              Read More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    {% else %}
+      <!-- Default blog posts (shown when no DB data) -->
+      <div class="blog-grid">
+
+        <div class="blog-card">
+          <div class="blog-image" style="background: linear-gradient(135deg,#e74c3c,#c0392b);">
+            <i class="fa-solid fa-mosquito"></i>
+            <span class="blog-category">Disease Prevention</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 10 Apr 2025</span>
+              <span><i class="fa-regular fa-user"></i> Dr. Otieno</span>
+            </div>
+            <h3>Understanding and Preventing Malaria in Western Kenya</h3>
+            <p>Malaria remains one of the leading causes of illness in Kisumu. Learn how to protect yourself and your family with proven preventive measures and early treatment...</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-image" style="background: linear-gradient(135deg,#27ae60,#1e8449);">
+            <i class="fa-solid fa-carrot"></i>
+            <span class="blog-category">Nutrition</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 2 Apr 2025</span>
+              <span><i class="fa-regular fa-user"></i> Nutritionist Auma</span>
+            </div>
+            <h3>5 Affordable Foods That Boost Your Immune System in Kenya</h3>
+            <p>Good nutrition does not have to be expensive. Discover five locally available Kenyan foods that are scientifically proven to strengthen your immune system and improve overall health...</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-image" style="background: linear-gradient(135deg,#8e44ad,#5b2c6f);">
+            <i class="fa-solid fa-baby"></i>
+            <span class="blog-category">Maternal Health</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 25 Mar 2025</span>
+              <span><i class="fa-regular fa-user"></i> Midwife Wanjiku</span>
+            </div>
+            <h3>Essential Antenatal Care: What Every Pregnant Woman Should Know</h3>
+            <p>Regular antenatal visits are crucial for both mother and baby. This guide walks you through the recommended schedule, tests, and warning signs to watch for during pregnancy in Kenya...</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-image" style="background: linear-gradient(135deg,#1a6bc0,#063263);">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span class="blog-category">General Health Tips</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 18 Mar 2025</span>
+              <span><i class="fa-regular fa-user"></i> Dr. Mwangi</span>
+            </div>
+            <h3>Managing High Blood Pressure: A Practical Guide for Kenyans</h3>
+            <p>Hypertension is increasingly common in urban Kenya. Learn about lifestyle changes, dietary adjustments, and medication adherence strategies to keep your blood pressure under control...</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-image" style="background: linear-gradient(135deg,#f39c12,#d68910);">
+            <i class="fa-solid fa-child-reaching"></i>
+            <span class="blog-category">Child Health</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 10 Mar 2025</span>
+              <span><i class="fa-regular fa-user"></i> Pediatrician Adhiambo</span>
+            </div>
+            <h3>The Complete Immunisation Schedule for Children Under 5 in Kenya</h3>
+            <p>Kenya's immunisation programme protects children from deadly diseases. Here is a comprehensive, parent-friendly breakdown of every vaccine your child needs from birth to age five...</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-image" style="background: linear-gradient(135deg,#1abc9c,#0e6655);">
+            <i class="fa-solid fa-droplet"></i>
+            <span class="blog-category">Disease Prevention</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-calendar"></i> 1 Mar 2025</span>
+              <span><i class="fa-regular fa-user"></i> Dr. Otieno</span>
+            </div>
+            <h3>Diabetes in Kenya: Early Warning Signs You Should Never Ignore</h3>
+            <p>Type 2 diabetes is rising rapidly in Kenya yet many people go undiagnosed for years. Here are the early warning signs, risk factors, and why early testing at your nearest clinic can save your life...</p>
+            <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- HEALTH TIP CTA -->
+<section style="background: white; padding: 64px 0;">
+  <div class="container">
+    <div style="background: linear-gradient(135deg, var(--primary-dark), var(--primary)); border-radius: var(--radius-lg); padding: 48px; text-align: center; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(0,168,150,0.1);"></div>
+      <h2 style="color: white; margin-bottom: 12px;">Have a Health Concern?</h2>
+      <p style="color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 28px;">Don't wait — book a consultation with one of our qualified doctors today. Early care saves lives.</p>
+      <a href="{% url 'booking' %}" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

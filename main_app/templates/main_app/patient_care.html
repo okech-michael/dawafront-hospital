@@ -1,0 +1,176 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Patient Care & Experience | Dawafront Healthcare Clinic{% endblock %}
+
+{% block content %}
+
+<div style="padding-top: var(--nav-height);"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">Your Journey With Us</span>
+    <h1>Patient Care & Experience</h1>
+    <p>From the moment you walk in, we guide you through every step of your healthcare journey with care and compassion.</p>
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a><span class="sep">/</span><span class="current">Patient Care</span>
+    </div>
+  </div>
+</section>
+
+<!-- PATIENT JOURNEY STEPS -->
+<section style="padding: 80px 0; background: var(--off-white);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Step by Step</span>
+      <h2>How We Attend to You</h2>
+      <div class="divider"></div>
+      <p>Our streamlined patient journey ensures you receive timely, thorough, and compassionate care from arrival to follow-up.</p>
+    </div>
+
+    <div class="care-steps">
+
+      <div class="care-step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3><i class="fa-solid fa-door-open" style="color:var(--accent); margin-right:10px;"></i>Reception & Registration</h3>
+          <p>Upon arrival, our friendly reception team greets you and registers your details including personal information, insurance coverage, and the reason for your visit. New patients are issued a unique patient file number for continuity of care. We aim to complete registration within 5 minutes.</p>
+          <div class="intro-features" style="max-width: 500px;">
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Fast Registration</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Insurance Verification</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Patient File Creation</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Triage Assessment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="care-step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3><i class="fa-solid fa-stethoscope" style="color:var(--accent); margin-right:10px;"></i>Consultation with a Doctor</h3>
+          <p>You will be seen by one of our qualified physicians in a private consultation room. The doctor takes a thorough history, performs a physical examination, and discusses your symptoms and concerns in detail. We ensure patients are fully informed about their condition and the proposed care plan.</p>
+          <div class="intro-features" style="max-width: 500px;">
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Private Consultation</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Full Physical Exam</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Patient Education</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Respectful Communication</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="care-step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3><i class="fa-solid fa-microscope" style="color:var(--accent); margin-right:10px;"></i>Diagnosis & Investigations</h3>
+          <p>Where necessary, the doctor will request laboratory tests, imaging (X-ray or ultrasound), or other investigations to support an accurate diagnosis. Our on-site laboratory and radiology services mean you get results quickly — most same-day — without having to travel elsewhere.</p>
+          <div class="intro-features" style="max-width: 500px;">
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> On-site Lab</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Digital X-Ray & Ultrasound</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Same-day Results</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Accurate Diagnosis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="care-step">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h3><i class="fa-solid fa-syringe" style="color:var(--accent); margin-right:10px;"></i>Treatment & Medication</h3>
+          <p>Based on the diagnosis, the doctor prescribes a treatment plan tailored to your individual needs. Medications are dispensed directly from our pharmacy. For admitted patients, treatment includes nursing care, IV therapy, physiotherapy referral if needed, and daily review by the clinical team.</p>
+          <div class="intro-features" style="max-width: 500px;">
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Personalised Treatment</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> In-house Pharmacy</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> IV Therapy</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Nursing Support</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="care-step">
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <h3><i class="fa-solid fa-calendar-check" style="color:var(--accent); margin-right:10px;"></i>Discharge & Follow-Up</h3>
+          <p>When you are ready to be discharged, our team provides a full discharge summary including diagnosis, treatments given, medications to take, and signs to watch for. Follow-up appointments are booked before you leave. We also offer a phone follow-up service for patients with chronic or complex conditions.</p>
+          <div class="intro-features" style="max-width: 500px;">
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Discharge Summary</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Medication Instructions</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Follow-up Booking</div>
+            <div class="intro-feature"><i class="fa-solid fa-check"></i> Phone Follow-up</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PATIENT RIGHTS & VALUES -->
+<section style="padding: 80px 0; background: white;">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Our Commitment</span>
+      <h2>Patient Rights & Our Values</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-shield-heart"></i></div>
+        <h3>Dignity & Respect</h3>
+        <p>Every patient is treated with the utmost dignity and respect regardless of their background, condition, or ability to pay. Discrimination of any kind is not tolerated.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-lock"></i></div>
+        <h3>Privacy & Confidentiality</h3>
+        <p>Your medical information is strictly confidential. Consultations are conducted privately, and records are securely stored in compliance with Kenyan health data regulations.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <h3>Right to Information</h3>
+        <p>You have the right to know your diagnosis, treatment options, expected outcomes, and costs. Our doctors explain everything clearly and answer all your questions.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Informed Consent</h3>
+        <p>No procedure is performed without your informed consent. We explain all risks, benefits, and alternatives before any treatment to ensure you can decide freely.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-comment-medical"></i></div>
+        <h3>Feedback Welcome</h3>
+        <p>We actively encourage patient feedback to improve our services. Complaint boxes, online forms, and direct communication channels are always available to you.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-wallet"></i></div>
+        <h3>Affordable Care</h3>
+        <p>We accept NHIF and multiple private insurance plans to make quality healthcare accessible to all. Flexible payment arrangements are available for those in need.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE ACCEPTED -->
+<section style="background: var(--off-white); padding: 60px 0;">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Insurance & Payments</span>
+      <h2>We Accept Your Insurance</h2>
+      <p>We work with major insurance and NHIF to ensure you receive care without financial barriers.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 16px;">
+      {% for insurer in insurers %}
+      <div style="background: white; border-radius: var(--radius-sm); padding: 14px 24px; box-shadow: var(--shadow-sm); font-weight: 700; font-size: 0.9rem; color: var(--primary-dark);">
+        <i class="fa-solid fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i>{{ insurer }}
+      </div>
+      {% endfor %}
+    </div>
+    <p style="text-align: center; margin-top: 24px; font-size: 0.9rem;">Don't see your insurer? <a href="{% url 'contact' %}" style="color: var(--primary); font-weight: 700;">Contact us</a> to confirm coverage.</p>
+  </div>
+</section>
+
+{% endblock %}

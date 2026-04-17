@@ -1,0 +1,197 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}Our Facilities | Dawafront Healthcare Clinic{% endblock %}
+
+{% block content %}
+
+<div style="padding-top: var(--nav-height);"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">Infrastructure & Equipment</span>
+    <h1>Our World-Class Facilities</h1>
+    <p>Modern, well-equipped spaces designed to deliver the highest standards of patient care.</p>
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a><span class="sep">/</span><span class="current">Facilities</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 80px 0; background: var(--off-white);">
+  <div class="container">
+
+    {% if facilities %}
+      <div class="facilities-grid">
+        {% for f in facilities %}
+        <div class="facility-card">
+          <div class="facility-image">
+            <i class="{{ f.icon }}"></i>
+            <span class="facility-badge">{{ f.capacity }} beds</span>
+          </div>
+          <div class="facility-body">
+            <h3>{{ f.name }}</h3>
+            <p>{{ f.description }}</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">{{ f.capacity }}</div><div class="key">Capacity</div></div>
+              <div class="fac-stat"><div class="val">24/7</div><div class="key">Available</div></div>
+              <div class="fac-stat"><div class="val">Qual.</div><div class="key">Staff</div></div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    {% else %}
+      <!-- Default facility cards -->
+      <div class="facilities-grid">
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=600&q=80" alt="Emergency Unit" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">2 beds</span>
+          </div>
+          <div class="facility-body">
+            <h3>Emergency Casualty Unit</h3>
+            <p>Our emergency unit is equipped with 2 dedicated emergency beds, resuscitation equipment, defibrillator, and 24/7 physician coverage for trauma and critical cases.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">2</div><div class="key">Beds</div></div>
+              <div class="fac-stat"><div class="val">24/7</div><div class="key">Available</div></div>
+              <div class="fac-stat"><div class="val">Rapid</div><div class="key">Response</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80" alt="Surgical Theatre" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">Sterile</span>
+          </div>
+          <div class="facility-body">
+            <h3>Surgical Theatre</h3>
+            <p>Our operating theatre is equipped with advanced surgical tools, anaesthesia equipment, and sterile conditions for safe performance of elective and emergency procedures.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">1</div><div class="key">Theatre</div></div>
+              <div class="fac-stat"><div class="val">Sterile</div><div class="key">Environment</div></div>
+              <div class="fac-stat"><div class="val">Qual.</div><div class="key">Team</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80" alt="Laboratory" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">Same-day</span>
+          </div>
+          <div class="facility-body">
+            <h3>Modern Laboratory</h3>
+            <p>Fully equipped laboratory with automated analyzers for haematology, biochemistry, microbiology, and rapid diagnostic tests. Most results ready within 1–3 hours.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">15+</div><div class="key">Test Types</div></div>
+              <div class="fac-stat"><div class="val">1–3h</div><div class="key">Turnaround</div></div>
+              <div class="fac-stat"><div class="val">Accred.</div><div class="key">Standards</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Radiology Unit" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">Digital</span>
+          </div>
+          <div class="facility-body">
+            <h3>Radiology Unit</h3>
+            <p>Digital X-ray and ultrasound facilities for fast, accurate imaging. Our radiology suite is radiation-safe with proper shielding and experienced radiography technologists.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">2</div><div class="key">Modalities</div></div>
+              <div class="fac-stat"><div class="val">Digital</div><div class="key">Imaging</div></div>
+              <div class="fac-stat"><div class="val">Fast</div><div class="key">Reports</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80" alt="Pharmacy" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">Licensed</span>
+          </div>
+          <div class="facility-body">
+            <h3>Pharmacy</h3>
+            <p>Our pharmacy is fully licensed by the Pharmacy & Poisons Board and stocked with essential medicines, antibiotics, chronic disease medications, and over-the-counter products.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">500+</div><div class="key">Drug Lines</div></div>
+              <div class="fac-stat"><div class="val">PPB</div><div class="key">Licensed</div></div>
+              <div class="fac-stat"><div class="val">Open</div><div class="key">24hrs</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80" alt="Maternity Ward" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">1 bed</span>
+          </div>
+          <div class="facility-body">
+            <h3>Maternity Ward</h3>
+            <p>A dedicated maternity bed in a private, comfortable ward for safe delivery. Our maternity suite includes necessary monitoring equipment, birth support tools, and a warm space for new mothers.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">1</div><div class="key">Maternity Bed</div></div>
+              <div class="fac-stat"><div class="val">Priv.</div><div class="key">Space</div></div>
+              <div class="fac-stat"><div class="val">Skilled</div><div class="key">Midwives</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80" alt="Pediatric Ward" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">Child-Safe</span>
+          </div>
+          <div class="facility-body">
+            <h3>Pediatric Ward</h3>
+            <p>A child-friendly ward with colourful décor, age-appropriate equipment, and a team of compassionate pediatric nurses who make every child feel safe and comfortable during treatment.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">6</div><div class="key">Beds</div></div>
+              <div class="fac-stat"><div class="val">Safe</div><div class="key">Environment</div></div>
+              <div class="fac-stat"><div class="val">Ped.</div><div class="key">Specialists</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="General Ward" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">8 beds</span>
+          </div>
+          <div class="facility-body">
+            <h3>General Ward</h3>
+            <p>Our general inpatient ward accommodates up to 8 patients in a clean, ventilated environment. Regular nursing rounds, meals, and daily physician reviews are provided to all admitted patients.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">8</div><div class="key">Beds</div></div>
+              <div class="fac-stat"><div class="val">Clean</div><div class="key">Environment</div></div>
+              <div class="fac-stat"><div class="val">Meals</div><div class="key">Included</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facility-card">
+          <div class="facility-image" style="padding: 0; background: none;">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Ambulance Services" style="width:100%; height:200px; object-fit:cover; display:block;" />
+            <span class="facility-badge">24/7</span>
+          </div>
+          <div class="facility-body">
+            <h3>Ambulance Services</h3>
+            <p>We coordinate ambulance transfers with licensed providers in Kisumu for patient transport to higher-level facilities when required. Emergency referrals are handled swiftly with prior communication.</p>
+            <div class="facility-stats">
+              <div class="fac-stat"><div class="val">24/7</div><div class="key">Availability</div></div>
+              <div class="fac-stat"><div class="val">Quick</div><div class="key">Dispatch</div></div>
+              <div class="fac-stat"><div class="val">Coord.</div><div class="key">Transfers</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

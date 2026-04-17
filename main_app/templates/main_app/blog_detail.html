@@ -1,0 +1,90 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block title %}{{ post.title }} | Dawafront Healthcare Blog{% endblock %}
+
+{% block content %}
+
+<div style="padding-top: var(--nav-height);"></div>
+
+<section class="page-hero" style="padding: 100px 0 50px;">
+  <div class="container">
+    <span class="section-badge" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);">{{ post.get_category_display }}</span>
+    <h1 style="max-width: 720px;">{{ post.title }}</h1>
+    <div class="breadcrumb">
+      <a href="{% url 'home' %}">Home</a><span class="sep">/</span>
+      <a href="{% url 'blog' %}">Blog</a><span class="sep">/</span>
+      <span class="current">Article</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 60px 0; background: var(--off-white);">
+  <div class="container">
+    <div class="blog-detail-layout">
+
+      <article>
+        <div class="blog-detail-meta">
+          <span><i class="fa-regular fa-calendar"></i> {{ post.date|date:"d F Y" }}</span>
+          <span><i class="fa-regular fa-user"></i> {{ post.author }}</span>
+          <span><i class="fa-solid fa-tag"></i> {{ post.get_category_display }}</span>
+        </div>
+
+        {% if post.image %}
+        <div style="margin-bottom: 32px; border-radius: var(--radius); overflow: hidden;">
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; max-height: 420px; object-fit: cover;" />
+        </div>
+        {% endif %}
+
+        <div class="blog-detail-body">
+          {{ post.content|linebreaks }}
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--light-grey); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <span style="font-size: 0.85rem; color: var(--text-light);">Share this article:</span>
+            <div style="display: flex; gap: 8px; margin-top: 8px;">
+              <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: #1877f2; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: #1da1f2; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.85rem;"><i class="fab fa-twitter"></i></a>
+              <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.85rem;"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <a href="{% url 'blog' %}" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside>
+        {% if recent_posts %}
+        <div class="blog-sidebar-widget">
+          <h4>Recent Articles</h4>
+          {% for p in recent_posts %}
+          <div class="recent-post-item">
+            <div class="recent-post-thumb"></div>
+            <div class="recent-post-info">
+              <a href="{% url 'blog_detail' p.pk %}" class="title">{{ p.title|truncatewords:8 }}</a>
+              <div class="date">{{ p.date|date:"d M Y" }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="blog-sidebar-widget">
+          <h4>Health Disclaimer</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Articles on this blog are for informational purposes only and do not constitute medical advice. Always consult a qualified healthcare provider for diagnosis and treatment.</p>
+        </div>
+
+        <div class="blog-sidebar-widget">
+          <h4>Book a Consultation</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 16px;">Have questions about your health? Speak to one of our doctors today.</p>
+          <a href="{% url 'booking' %}" class="btn btn-solid" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-calendar-check"></i> Book Now
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Dawafront Healthcare Clinic | Kisumu, Kenya{% endblock %}</title>
+  <meta name="description" content="Dawafront Healthcare Clinic - Trusted Level 3 Medical Facility in Kisumu, Kenya. Compassionate Care, Advanced Medicine." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="{% url 'home' %}" class="nav-logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <span>Dawafront <span class="accent">Healthcare</span></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="{% url 'home' %}" class="{% if page == 'home' %}active{% endif %}">Home</a>
+        <a href="{% url 'services' %}" class="{% if page == 'services' %}active{% endif %}">Services</a>
+        <a href="{% url 'facilities' %}" class="{% if page == 'facilities' %}active{% endif %}">Facilities</a>
+        <a href="{% url 'patient_care' %}" class="{% if page == 'patient_care' %}active{% endif %}">Patient Care</a>
+        <a href="{% url 'blog' %}" class="{% if page == 'blog' %}active{% endif %}">Blog</a>
+        <a href="{% url 'contact' %}" class="{% if page == 'contact' %}active{% endif %}">Contact</a>
+        <a href="{% url 'booking' %}" class="nav-cta">Book Appointment</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- DJANGO MESSAGES -->
+  {% if messages %}
+  <div class="messages-container">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">
+      <i class="fa-solid {% if message.tags == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- MAIN CONTENT -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <span class="logo-text">Dawafront Healthcare</span>
+          </div>
+          <p>A trusted Level 3 Medical Clinic serving Kisumu and surrounding areas. Compassionate care, advanced medicine, available 24/7 for your health needs.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="{% url 'home' %}"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Services</a></li>
+            <li><a href="{% url 'facilities' %}"><i class="fa-solid fa-angle-right"></i> Facilities</a></li>
+            <li><a href="{% url 'patient_care' %}"><i class="fa-solid fa-angle-right"></i> Patient Care</a></li>
+            <li><a href="{% url 'blog' %}"><i class="fa-solid fa-angle-right"></i> Health Blog</a></li>
+            <li><a href="{% url 'booking' %}"><i class="fa-solid fa-angle-right"></i> Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Outpatient Care</a></li>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Emergency Services</a></li>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Maternity</a></li>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Pediatrics</a></li>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Laboratory</a></li>
+            <li><a href="{% url 'services' %}"><i class="fa-solid fa-angle-right"></i> Pharmacy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Lolwe Shopping Centre, Kisumu<br/>Kondele Ward, Kisumu Central</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>+254 700 123 456<br/>+254 722 987 654</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>info@dawafront.co.ke</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Open 24 Hours, 7 Days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <strong>Website built by TerraSept Solutions PLC, Kisii Kwanza Place, Third Floor.</strong>
+        <span>&copy; {% now "Y" %} Dawafront Healthcare Clinic. All rights reserved. | Reg. No. 020978 | License: 620589</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHAT BOT -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Chat with us">
+    <i class="fa-solid fa-comments"></i>
+    <span class="chat-notification">1</span>
+  </button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+      <div class="chat-header-info">
+        <div class="chat-name">Dawa Health Assistant</div>
+        <div class="chat-status">Online — Always here to help</div>
+      </div>
+      <button class="chat-close" id="chatClose"><i class="fa-solid fa-times"></i></button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message bot">
+        👋 Hello! I'm your Dawafront Health Assistant. I can help you with health questions, appointment info, and our services. How can I help you today?
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type your question..." />
+      <button class="chat-send" id="chatSend"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
