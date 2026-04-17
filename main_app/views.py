@@ -128,7 +128,11 @@ def blog_detail(request, pk):
 
 
 def contact(request):
-    branches = Branch.objects.all()
+    try:
+        branches = list(Branch.objects.all())
+    except Exception:
+        branches = []
+    
     if request.method == 'POST':
         try:
             ContactMessage.objects.create(

@@ -63,7 +63,7 @@
         <div class="contact-info-card">
           <h3 style="margin-bottom: 20px; font-size: 1.2rem;">Our Branches</h3>
 
-          {% if branches %}
+          {% if branches and branches|length > 0 %}
             {% for branch in branches %}
             <div class="branch-item">
               <div class="branch-dot"></div>
