@@ -11,7 +11,10 @@ from .models import (
 
 
 def home(request):
-    testimonials = PatientTestimonial.objects.all()[:6]
+    try:
+        testimonials = PatientTestimonial.objects.all()[:6]
+    except Exception:
+        testimonials = []
     context = {
         'testimonials': testimonials,
         'page': 'home',
@@ -25,7 +28,10 @@ def services(request):
 
 
 def facilities(request):
-    facilities_list = Facility.objects.all()
+    try:
+        facilities_list = Facility.objects.all()
+    except Exception:
+        facilities_list = []
     context = {
         'facilities': facilities_list,
         'page': 'facilities',
@@ -96,7 +102,10 @@ def booking(request):
 
 
 def blog(request):
-    posts = BlogPost.objects.filter(is_published=True).order_by('-date')
+    try:
+        posts = BlogPost.objects.filter(is_published=True).order_by('-date')
+    except Exception:
+        posts = []
     context = {
         'posts': posts,
         'page': 'blog',
@@ -107,9 +116,9 @@ def blog(request):
 def blog_detail(request, pk):
     try:
         post = BlogPost.objects.get(pk=pk, is_published=True)
-    except BlogPost.DoesNotExist:
+        recent_posts = BlogPost.objects.filter(is_published=True).exclude(pk=pk).order_by('-date')[:3]
+    except (BlogPost.DoesNotExist, Exception):
         return redirect('blog')
-    recent_posts = BlogPost.objects.filter(is_published=True).exclude(pk=pk).order_by('-date')[:3]
     context = {
         'post': post,
         'recent_posts': recent_posts,
