@@ -6,9 +6,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-dawafront-healthcare-secret-key-change-in-production')
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,dawafront-hospital.up.railway.app,*.railway.app', cast=Csv())
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://dawafront-hospital.up.railway.app',
+    'https://*.railway.app',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -52,12 +57,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hospital_project.wsgi.application'
 
 # Database configuration
-if config('DATABASE_URL', default=''):
+try:
     import dj_database_url
     DATABASES = {
-        'default': dj_database_url.config(default=config('DATABASE_URL'), conn_max_age=600)
+        'default': dj_database_url.config(
+            default='sqlite:///db.sqlite3',
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
     }
-else:
+except Exception as e:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
