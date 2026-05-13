@@ -624,6 +624,14 @@ section { padding: 80px 0; }
 
 .stat-icon.green { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
 
+.stat-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
 .stat-info .number {
   font-family: var(--font-heading);
   font-size: 1.6rem;
