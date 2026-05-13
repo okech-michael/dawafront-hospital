@@ -29,11 +29,21 @@
           <span><i class="fa-solid fa-tag"></i> {{ post.get_category_display }}</span>
         </div>
 
-        {% if post.image %}
         <div style="margin-bottom: 32px; border-radius: var(--radius); overflow: hidden;">
-          <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% elif post.category == 'disease_prevention' %}
+            <img src="{% static 'main_app/images/blog-photo-01.svg' %}" alt="Disease Prevention" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% elif post.category == 'nutrition' %}
+            <img src="{% static 'main_app/images/blog-photo-02.svg' %}" alt="Nutrition" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% elif post.category == 'maternal_health' %}
+            <img src="{% static 'main_app/images/blog-photo-03.svg' %}" alt="Maternal Health" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% elif post.category == 'child_health' %}
+            <img src="{% static 'main_app/images/blog-photo-02.svg' %}" alt="Child Health" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% else %}
+            <img src="{% static 'main_app/images/blog-photo-03.svg' %}" alt="Health Tips" style="width: 100%; max-height: 420px; object-fit: cover;" />
+          {% endif %}
         </div>
-        {% endif %}
 
         <div class="blog-detail-body">
           {{ post.content|linebreaks }}
@@ -59,7 +69,21 @@
           <h4>Recent Articles</h4>
           {% for p in recent_posts %}
           <div class="recent-post-item">
-            <div class="recent-post-thumb"></div>
+            <div class="recent-post-thumb">
+              {% if p.image %}
+                <img src="{{ p.image.url }}" alt="{{ p.title }}" />
+              {% elif p.category == 'disease_prevention' %}
+                <img src="{% static 'main_app/images/blog-photo-01.svg' %}" alt="{{ p.title }}" />
+              {% elif p.category == 'nutrition' %}
+                <img src="{% static 'main_app/images/blog-photo-02.svg' %}" alt="{{ p.title }}" />
+              {% elif p.category == 'maternal_health' %}
+                <img src="{% static 'main_app/images/blog-photo-03.svg' %}" alt="{{ p.title }}" />
+              {% elif p.category == 'child_health' %}
+                <img src="{% static 'main_app/images/blog-photo-02.svg' %}" alt="{{ p.title }}" />
+              {% else %}
+                <img src="{% static 'main_app/images/blog-photo-03.svg' %}" alt="{{ p.title }}" />
+              {% endif %}
+            </div>
             <div class="recent-post-info">
               <a href="{% url 'blog_detail' p.pk %}" class="title">{{ p.title|truncatewords:8 }}</a>
               <div class="date">{{ p.date|date:"d M Y" }}</div>

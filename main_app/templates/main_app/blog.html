@@ -27,8 +27,16 @@
           <div class="blog-image">
             {% if post.image %}
               <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+            {% elif post.category == 'disease_prevention' %}
+              <img src="{% static 'main_app/images/blog-photo-01.svg' %}" alt="Disease Prevention" />
+            {% elif post.category == 'nutrition' %}
+              <img src="{% static 'main_app/images/blog-photo-02.svg' %}" alt="Nutrition" />
+            {% elif post.category == 'maternal_health' %}
+              <img src="{% static 'main_app/images/blog-photo-03.svg' %}" alt="Maternal Health" />
+            {% elif post.category == 'child_health' %}
+              <img src="{% static 'main_app/images/blog-photo-02.svg' %}" alt="Child Health" />
             {% else %}
-              <i class="fa-solid fa-newspaper"></i>
+              <img src="{% static 'main_app/images/blog-photo-03.svg' %}" alt="Health Tips" />
             {% endif %}
             <span class="blog-category">{{ post.get_category_display }}</span>
           </div>
