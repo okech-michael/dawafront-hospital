@@ -83,7 +83,7 @@ class Facility(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(upload_to='facilities/', blank=True, null=True)
-    capacity = models.IntegerField(default=10)
+    capacity = models.IntegerField(default=30)
     icon = models.CharField(max_length=50, default='fa-hospital')
 
     def __str__(self):

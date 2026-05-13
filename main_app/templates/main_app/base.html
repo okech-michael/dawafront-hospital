@@ -50,6 +50,30 @@
     </div>
   </nav>
 
+  <!-- BOTTOM NAVIGATION (Mobile) -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="{% url 'home' %}" class="bottom-nav-item {% if page == 'home' %}active{% endif %}" data-page="home" aria-label="Home">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="{% url 'services' %}" class="bottom-nav-item {% if page == 'services' %}active{% endif %}" data-page="services" aria-label="Services">
+      <i class="fa-solid fa-stethoscope"></i>
+      <span>Services</span>
+    </a>
+    <a href="{% url 'facilities' %}" class="bottom-nav-item {% if page == 'facilities' %}active{% endif %}" data-page="facilities" aria-label="Facilities">
+      <i class="fa-solid fa-hospital"></i>
+      <span>Facilities</span>
+    </a>
+    <a href="{% url 'contact' %}" class="bottom-nav-item {% if page == 'contact' %}active{% endif %}" data-page="contact" aria-label="Contact">
+      <i class="fa-solid fa-phone"></i>
+      <span>Contact</span>
+    </a>
+    <a href="{% url 'booking' %}" class="bottom-nav-item {% if page == 'booking' %}active{% endif %}" data-page="booking" aria-label="Book">
+      <i class="fa-solid fa-calendar-check"></i>
+      <span>Book</span>
+    </a>
+  </nav>
+
   <!-- DJANGO MESSAGES -->
   {% if messages %}
   <div class="messages-container">
@@ -124,7 +148,7 @@
           </div>
           <div class="footer-contact-item">
             <i class="fa-solid fa-phone"></i>
-            <span>+254 700 123 456<br/>+254 722 987 654</span>
+            <span>0748036897<br/>0701069413</span>
           </div>
           <div class="footer-contact-item">
             <i class="fa-solid fa-envelope"></i>

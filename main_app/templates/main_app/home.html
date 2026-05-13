@@ -16,7 +16,7 @@
           <h1>Compassionate Care,<br /><span>Advanced Medicine</span></h1>
           <p>Your trusted healthcare partner in Kisumu. Serving Kondele Ward and Kisumu Central with professional, accessible medical care — 24 hours a day.</p>
           <div class="hero-contact-bar">
-            <div class="hero-contact-item"><i class="fa-solid fa-phone"></i><span>+254 700 123 456</span></div>
+            <div class="hero-contact-item"><i class="fa-solid fa-phone"></i><span>0748036897 / 0701069413</span></div>
             <div class="hero-contact-item"><i class="fa-solid fa-envelope"></i><span>info@dawafront.co.ke</span></div>
           </div>
           <div class="hero-buttons">
@@ -42,7 +42,7 @@
           <h1>Your Health Is Our<br /><span>Priority</span></h1>
           <p>From general consultations to emergency care, our qualified medical professionals are here for you and your family every day of the year.</p>
           <div class="hero-contact-bar">
-            <div class="hero-contact-item"><i class="fa-solid fa-truck-medical"></i><span>Drug Delivery Available</span></div>
+            <div class="hero-contact-item"><i class="fa-solid fa-phone"></i><span>0748036897 / 0701069413</span></div>
             <div class="hero-contact-item"><i class="fa-solid fa-house-medical"></i><span>Home Visit Services</span></div>
           </div>
           <div class="hero-buttons">
@@ -289,7 +289,13 @@
           </div>
           <p class="testimonial-text">{{ t.message }}</p>
           <div class="testimonial-author">
-            <div class="author-avatar">{{ t.name|first }}</div>
+            <div class="author-avatar">
+              {% if t.photo %}
+                <img src="{{ t.photo.url }}" alt="{{ t.name }}" />
+              {% else %}
+                {{ t.name|first }}
+              {% endif %}
+            </div>
             <div class="author-info">
               <div class="name">{{ t.name }}</div>
               <div class="role">Patient</div>

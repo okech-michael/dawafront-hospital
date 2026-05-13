@@ -22,6 +22,18 @@ if (hamburger) {
   });
 }
 
+// ===== BOTTOM NAVIGATION (Mobile) =====
+const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+
+bottomNavItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    bottomNavItems.forEach(nav => nav.classList.remove('active'));
+    item.classList.add('active');
+    window.location.href = item.getAttribute('href');
+  });
+});
+
 // ===== HERO CAROUSEL =====
 const carouselSlides = document.querySelector('.carousel-slides');
 const dots = document.querySelectorAll('.carousel-dot');

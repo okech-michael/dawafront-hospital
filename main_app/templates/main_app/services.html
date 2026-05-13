@@ -24,7 +24,11 @@
 <section class="services-full bg-off-white">
   <div class="container">
 
+    <!-- Outpatient Care -->
     <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-01.svg' %}" alt="Service image">
+      </div>
       <div class="service-full-icon"><i class="fa-solid fa-stethoscope"></i></div>
       <div class="service-full-content">
         <h3>Outpatient Care</h3>
@@ -37,7 +41,11 @@
       </div>
     </div>
 
+    <!-- Inpatient Care -->
     <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-02.svg' %}" alt="Service image">
+      </div>
       <div class="service-full-icon"><i class="fa-solid fa-bed-pulse"></i></div>
       <div class="service-full-content">
         <h3>Inpatient Care</h3>
@@ -50,37 +58,66 @@
       </div>
     </div>
 
+    <!-- Pharmacy & Surgical Supplies -->
     <div class="service-full-card">
-      <div class="service-full-icon" style="background: linear-gradient(135deg,#e74c3c,#c0392b);"><i class="fa-solid fa-truck-medical"></i></div>
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-03.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#27ae60,#1e8449);"><i class="fa-solid fa-pills"></i></div>
       <div class="service-full-content">
-        <h3>Emergency Services</h3>
-        <p>Our emergency department is staffed 24 hours a day, 7 days a week to respond to accidents, sudden illness, and life-threatening conditions. We are equipped with emergency beds and experienced emergency physicians to handle critical cases efficiently.</p>
+        <h3>Pharmacy &amp; Surgical Supplies</h3>
+        <p>Our pharmacy is stocked with a wide range of prescription and over-the-counter medications, as well as surgical and medical consumables. Our qualified pharmacists provide guidance on medication use, side effects, and drug interactions. We also offer a drug delivery service for patients who cannot visit the clinic.</p>
         <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> 2 Emergency Beds</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Rapid Triage</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Trauma Management</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Prescription Medications</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Surgical Consumables</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Drug Delivery</div>
         </div>
       </div>
     </div>
 
+    <!-- Laboratory -->
     <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-01.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#2980b9,#1c5f8a);"><i class="fa-solid fa-flask-vial"></i></div>
+      <div class="service-full-content">
+        <h3>Laboratory Services</h3>
+        <p>Our on-site laboratory provides a comprehensive range of diagnostic tests including full blood count, blood glucose, malaria RDT, HIV testing, urinalysis, cultures, liver and kidney function tests, and more. Most results are available same-day to ensure timely clinical decisions.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Blood Tests</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Malaria &amp; HIV Screening</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Same-Day Results</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theatre -->
+    <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-02.svg' %}" alt="Service image">
+      </div>
       <div class="service-full-icon" style="background: linear-gradient(135deg,#8e44ad,#6c3483);"><i class="fa-solid fa-scalpel"></i></div>
       <div class="service-full-content">
-        <h3>Surgery</h3>
-        <p>Our surgical team performs a range of elective and emergency procedures in a fully equipped operating theatre. Pre-operative assessments, anaesthesia, and post-operative care are all handled by our dedicated surgical team.</p>
+        <h3>Theatre (Surgery)</h3>
+        <p>Our fully equipped operating theatre supports a range of elective and emergency surgical procedures. Our skilled surgical team handles everything from minor operations to more complex procedures, with comprehensive pre-operative assessment, anaesthesia, and post-operative care provided throughout.</p>
         <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Minor Surgery</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Laparoscopy</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Elective Surgery</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Emergency Procedures</div>
           <div class="intro-feature"><i class="fa-solid fa-check"></i> Post-op Care</div>
         </div>
       </div>
     </div>
 
+    <!-- Maternity -->
     <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-03.svg' %}" alt="Service image">
+      </div>
       <div class="service-full-icon" style="background: linear-gradient(135deg,#e91e8c,#c2185b);"><i class="fa-solid fa-baby"></i></div>
       <div class="service-full-content">
         <h3>Maternity Services</h3>
-        <p>We provide comprehensive maternity care from antenatal clinics through to safe delivery and postnatal follow-up. Our maternity ward has a dedicated maternity bed and caring midwives who ensure the safety and comfort of mother and baby.</p>
+        <p>We provide comprehensive maternity care from antenatal clinics through to safe delivery and postnatal follow-up. Our maternity ward is staffed by dedicated midwives and obstetricians who ensure the safety and comfort of both mother and baby at every stage.</p>
         <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
           <div class="intro-feature"><i class="fa-solid fa-check"></i> Antenatal Clinics</div>
           <div class="intro-feature"><i class="fa-solid fa-check"></i> Safe Delivery</div>
@@ -89,54 +126,123 @@
       </div>
     </div>
 
+    <!-- MCH / Family Planning -->
     <div class="service-full-card">
-      <div class="service-full-icon" style="background: linear-gradient(135deg,#f39c12,#d68910);"><i class="fa-solid fa-child-reaching"></i></div>
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-01.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#e74c3c,#c0392b);"><i class="fa-solid fa-heart-circle-check"></i></div>
       <div class="service-full-content">
-        <h3>Pediatrics</h3>
-        <p>Our pediatric services cover the full spectrum of children's health from newborns to teenagers. We conduct growth monitoring, immunizations, nutritional counseling, and treatment for common and complex childhood illnesses in a child-friendly environment.</p>
+        <h3>MCH / Family Planning</h3>
+        <p>Our Mother and Child Health (MCH) clinic offers immunizations, growth monitoring, nutritional support, and preventive care for mothers and young children. Our family planning services provide counseling and a full range of contraceptive options to support informed reproductive choices.</p>
         <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Immunizations</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Child Immunizations</div>
           <div class="intro-feature"><i class="fa-solid fa-check"></i> Growth Monitoring</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Child Nutrition</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Contraception Counseling</div>
         </div>
       </div>
     </div>
 
+    <!-- Wellness Clinics -->
     <div class="service-full-card">
-      <div class="service-full-icon" style="background: linear-gradient(135deg,#1abc9c,#148f77);"><i class="fa-solid fa-x-ray"></i></div>
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-02.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#1abc9c,#148f77);"><i class="fa-solid fa-heart-pulse"></i></div>
       <div class="service-full-content">
-        <h3>Radiology</h3>
-        <p>Our radiology unit provides digital X-ray services and ultrasound scanning to support accurate diagnosis. All imaging is reviewed by experienced radiologists, and reports are delivered promptly.</p>
+        <h3>Wellness Clinics</h3>
+        <p>Our wellness clinics focus on preventive healthcare and management of lifestyle-related conditions. We offer regular health screening, chronic disease management (diabetes, hypertension), nutritional counseling, and health education to empower patients to lead healthier lives.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Health Screening</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Diabetes &amp; Hypertension</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Nutritional Counseling</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specialized Clinics -->
+    <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-03.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#f39c12,#d68910);"><i class="fa-solid fa-user-doctor"></i></div>
+      <div class="service-full-content">
+        <h3>Specialized Clinics</h3>
+        <p>We host a range of visiting and resident specialist clinics to bring expert care closer to our patients. Our specialists conduct thorough assessments, investigations, and treatment planning for complex conditions that require advanced clinical expertise.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Surgery</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Obs/Gynaecology</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Internal Medicine</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Paediatrics</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Dermatology</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dental -->
+    <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-01.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#00b4d8,#0077b6);"><i class="fa-solid fa-tooth"></i></div>
+      <div class="service-full-content">
+        <h3>Dental Services</h3>
+        <p>Our dental clinic provides a full range of oral health services for both adults and children. Whether you need a routine check-up and cleaning, a filling, tooth extraction, or restorative work, our qualified dentists deliver comfortable and professional care.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Check-ups &amp; Cleaning</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Extractions &amp; Fillings</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Restorative Dentistry</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Physiotherapy -->
+    <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-02.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#6a0572,#ab2fc4);"><i class="fa-solid fa-person-walking"></i></div>
+      <div class="service-full-content">
+        <h3>Physiotherapy</h3>
+        <p>Our physiotherapy unit helps patients recover from injuries, surgeries, and musculoskeletal conditions through evidence-based rehabilitation programs. Our physiotherapists assess each patient individually and design targeted exercise and therapy plans to restore function and reduce pain.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Post-op Rehabilitation</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Musculoskeletal Therapy</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Pain Management</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ultrasound -->
+    <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-03.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#2ecc71,#27ae60);"><i class="fa-solid fa-wave-square"></i></div>
+      <div class="service-full-content">
+        <h3>Ultrasound</h3>
+        <p>Our ultrasound unit offers high-quality sonography for obstetric, abdominal, pelvic, and soft-tissue imaging. Scans are performed by trained sonographers and reviewed by our radiologists, with prompt reports to guide clinical management.</p>
+        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Obstetric Scans</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Abdominal &amp; Pelvic</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Prompt Reports</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- X-Ray -->
+    <div class="service-full-card">
+      <div class="service-full-media">
+        <img src="{% static 'main_app/images/service-photo-01.svg' %}" alt="Service image">
+      </div>
+      <div class="service-full-icon" style="background: linear-gradient(135deg,#34495e,#1a252f);"><i class="fa-solid fa-x-ray"></i></div>
+      <div class="service-full-content">
+        <h3>X-Ray</h3>
+        <p>Our radiology unit provides digital X-ray services to support accurate diagnosis of bone, chest, and other conditions. All imaging is reviewed by experienced radiologists, and reports are delivered promptly to ensure swift clinical decision-making.</p>
         <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
           <div class="intro-feature"><i class="fa-solid fa-check"></i> Digital X-Ray</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Ultrasound</div>
+          <div class="intro-feature"><i class="fa-solid fa-check"></i> Chest &amp; Bone Imaging</div>
           <div class="intro-feature"><i class="fa-solid fa-check"></i> Fast Reports</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-full-card">
-      <div class="service-full-icon" style="background: linear-gradient(135deg,#2980b9,#1c5f8a);"><i class="fa-solid fa-flask-vial"></i></div>
-      <div class="service-full-content">
-        <h3>Laboratory Services</h3>
-        <p>Our on-site laboratory provides a comprehensive range of diagnostic tests including blood count, blood glucose, malaria RDT, HIV testing, urinalysis, cultures, and more. Most results are available same-day.</p>
-        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Blood Tests</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Malaria Tests</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> HIV/STI Screening</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-full-card">
-      <div class="service-full-icon" style="background: linear-gradient(135deg,#27ae60,#1e8449);"><i class="fa-solid fa-pills"></i></div>
-      <div class="service-full-content">
-        <h3>Pharmacy</h3>
-        <p>Our pharmacy is stocked with prescription and over-the-counter medications. Our qualified pharmacists provide guidance on medication use, side effects, and drug interactions. We also offer a drug delivery service for patients who cannot visit the clinic.</p>
-        <div class="intro-features" style="grid-template-columns: repeat(3,1fr); max-width: 600px;">
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Wide Medication Range</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Qualified Pharmacists</div>
-          <div class="intro-feature"><i class="fa-solid fa-check"></i> Drug Delivery</div>
         </div>
       </div>
     </div>
@@ -151,7 +257,7 @@
     <p style="color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 32px;">Our team is ready to serve you. Book an appointment or call us now.</p>
     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
       <a href="{% url 'booking' %}" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
-      <a href="tel:+254700123456" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call +254 700 123 456</a>
+      <a href="tel:0748036897" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call 0748036897</a>
     </div>
   </div>
 </section>

@@ -25,7 +25,11 @@
         {% for f in facilities %}
         <div class="facility-card">
           <div class="facility-image">
-            <i class="{{ f.icon }}"></i>
+            {% if f.image %}
+              <img src="{{ f.image.url }}" alt="{{ f.name }}" />
+            {% else %}
+              <i class="{{ f.icon }}"></i>
+            {% endif %}
             <span class="facility-badge">{{ f.capacity }} beds</span>
           </div>
           <div class="facility-body">
@@ -150,7 +154,7 @@
             <h3>Pediatric Ward</h3>
             <p>A child-friendly ward with colourful décor, age-appropriate equipment, and a team of compassionate pediatric nurses who make every child feel safe and comfortable during treatment.</p>
             <div class="facility-stats">
-              <div class="fac-stat"><div class="val">6</div><div class="key">Beds</div></div>
+              <div class="fac-stat"><div class="val">10</div><div class="key">Beds</div></div>
               <div class="fac-stat"><div class="val">Safe</div><div class="key">Environment</div></div>
               <div class="fac-stat"><div class="val">Ped.</div><div class="key">Specialists</div></div>
             </div>
@@ -164,9 +168,9 @@
           </div>
           <div class="facility-body">
             <h3>General Ward</h3>
-            <p>Our general inpatient ward accommodates up to 8 patients in a clean, ventilated environment. Regular nursing rounds, meals, and daily physician reviews are provided to all admitted patients.</p>
+            <p>Our general inpatient ward accommodates up to 17 patients in a clean, ventilated environment. Regular nursing rounds, meals, and daily physician reviews are provided to all admitted patients.</p>
             <div class="facility-stats">
-              <div class="fac-stat"><div class="val">8</div><div class="key">Beds</div></div>
+              <div class="fac-stat"><div class="val">17</div><div class="key">Beds</div></div>
               <div class="fac-stat"><div class="val">Clean</div><div class="key">Environment</div></div>
               <div class="fac-stat"><div class="val">Meals</div><div class="key">Included</div></div>
             </div>
