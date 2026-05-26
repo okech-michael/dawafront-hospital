@@ -102,13 +102,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'main_app' / 'static',
-] if (BASE_DIR / 'main_app' / 'static').exists() else []
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration - use simple storage, not manifest
-# Manifest storage causes issues on serverless platforms
+# For Vercel serverless, serve static files directly from source directories
+# Don't collect to a separate staticfiles/ directory
+if os.environ.get('VERCEL'):
+    # On Vercel, serve from main_app/static directly
+    STATIC_ROOT = None
+    STATICFILES_DIRS = [
+        BASE_DIR / 'main_app' / 'static',
+    ]
+else:
+    # Local development
+    STATICFILES_DIRS = [
+        BASE_DIR / 'main_app' / 'static',
+    ] if (BASE_DIR / 'main_app' / 'static').exists() else []
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# WhiteNoise configuration - finds files from STATICFILES_DIRS
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
