@@ -1,0 +1,46 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Python
+.venv
+venv
+env
+ENV
+*.pyc
+__pycache__
+*.pyo
+*.egg-info
+dist
+build
+.Python
+
+# Django
+*.sqlite3
+db.sqlite3
+/media/
+/staticfiles/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+
+# Node (for development tools only)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Documentation
+*.md
+
+# OS
+Thumbs.db
