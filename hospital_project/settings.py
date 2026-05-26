@@ -8,7 +8,19 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-dawafront-healthcare-
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
+# Allow Vercel domains, Railway, and localhost
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '*.vercel.app',
+    '*.railway.app',
+    'dawafront-hospital.vercel.app',
+]
+
+# Override with environment variable if provided
+_allowed_hosts_env = config('ALLOWED_HOSTS', default=None)
+if _allowed_hosts_env:
+    ALLOWED_HOSTS = _allowed_hosts_env.split(',')
 
 CSRF_TRUSTED_ORIGINS = [
     'https://dawafront-hospital.up.railway.app',
