@@ -107,8 +107,9 @@ STATICFILES_DIRS = [
 ] if (BASE_DIR / 'main_app' / 'static').exists() else []
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# WhiteNoise configuration - use simple storage, not manifest
+# Manifest storage causes issues on serverless platforms
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
