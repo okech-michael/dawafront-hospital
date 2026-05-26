@@ -15,4 +15,9 @@ try:
 except Exception as e:
     print(f"Migration error (non-critical): {e}", file=sys.stderr)
 
-application = get_wsgi_application()
+# Get WSGI application
+app = get_wsgi_application()
+
+# Wrap with WhiteNoise for static file serving
+from whitenoise import WhiteNoise
+application = WhiteNoise(app)

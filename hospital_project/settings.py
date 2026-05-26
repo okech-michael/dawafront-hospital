@@ -102,26 +102,32 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'main_app' / 'static',
+]
 
-# For Vercel serverless, serve static files directly from source directories
-# Don't collect to a separate staticfiles/ directory
+# Use simple static files storage - no hashing or compression
+# This works better on serverless platforms like Vercel
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+# Static root - where to look for static files
 if os.environ.get('VERCEL'):
-    # On Vercel, serve from main_app/static directly
-    STATIC_ROOT = None
-    STATICFILES_DIRS = [
-        BASE_DIR / 'main_app' / 'static',
-    ]
+    # On Vercel, use /tmp which is ephemeral but sufficient for static files
+    STATIC_ROOT = '/tmp/staticfiles'
 else:
     # Local development
-    STATICFILES_DIRS = [
-        BASE_DIR / 'main_app' / 'static',
-    ] if (BASE_DIR / 'main_app' / 'static').exists() else []
     STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise configuration - finds files from STATICFILES_DIRS
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Disable WhiteNoise compression to avoid issues
+WHITENOISE_AUTOREFRESH = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# WhiteNoise configuration for static file serving
+WHITENOISE_ALLOW_ALL_ORIGINS = True
+WHITENOISE_MIMETYPES = {
+    '.svg': 'image/svg+xml',
+}
