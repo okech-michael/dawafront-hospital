@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-dawafront-healthcare-secret-key-change-in-production')
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 # Allow Vercel domains, Railway, and localhost
 ALLOWED_HOSTS = [
@@ -110,13 +110,9 @@ STATICFILES_DIRS = [
 # This works better on serverless platforms like Vercel
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# Static root - where to look for static files
-if os.environ.get('VERCEL'):
-    # On Vercel, use /tmp which is ephemeral but sufficient for static files
-    STATIC_ROOT = '/tmp/staticfiles'
-else:
-    # Local development
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Static root - when DEBUG=False on production, Django needs STATIC_ROOT
+# When DEBUG=True (Vercel), files served from STATICFILES_DIRS
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Disable WhiteNoise compression to avoid issues
 WHITENOISE_AUTOREFRESH = True
@@ -125,9 +121,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# WhiteNoise configuration for static file serving
-WHITENOISE_ALLOW_ALL_ORIGINS = True
-WHITENOISE_MIMETYPES = {
-    '.svg': 'image/svg+xml',
-}
